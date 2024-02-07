@@ -23,15 +23,12 @@ export function setClick(selector, callback) {
   qs(selector).addEventListener("touchend", (event) => {
     event.preventDefault();
     callback();
+    console.log('listener loaded')
   });
   qs(selector).addEventListener("click", callback);
+  console.log('listener loaded')
 }
-/*
-░█▀▀░█▀▀░▀█▀░░█▀█░█▀█░█▀▄░█▀█░█▄█░█▀▀
-░█░█░█▀▀░░█░░░█▀▀░█▀█░█▀▄░█▀█░█░█░▀▀█
-░▀▀▀░▀▀▀░░▀░░░▀░░░▀░▀░▀░▀░▀░▀░▀░▀░▀▀▀
-*/
-//week2
+/* getParams */
 export function getParams(param){
   const queryString = window.location.search;
   const urlParams = new URLSearchParams(queryString);
@@ -39,20 +36,16 @@ export function getParams(param){
   return product;
 }
 
-/* 
-░█▀▄░█▀▀░█▀█░█▀▄░█▀▀░█▀▄░░█░░░▀█▀░█▀▀░▀█▀░░░▀█▀░█▀▀░█▄█░█▀█░█░░░█▀█░▀█▀░█▀▀
-░█▀▄░█▀▀░█░█░█░█░█▀▀░█▀▄░░█░░░░█░░▀▀█░░█░░░░░█░░█▀▀░█░█░█▀▀░█░░░█▀█░░█░░█▀▀
-░▀░▀░▀▀▀░▀░▀░▀▀░░▀▀▀░▀░▀░░▀▀▀░▀▀▀░▀▀▀░░▀░░░░░▀░░▀▀▀░▀░▀░▀░░░▀▀▀░▀░▀░░▀░░▀▀▀
-*/
+/* renderListWithTemplate */
 //used by ProductList
-export function renderListWithTemplate(templateFn, parentElement, list, position = "afterbegin", clear=false){
-  const htmlStrings = list.map(templateFn);
-  //use clear to wipe the element before loading with the template
-  if (clear){
-    parentElement.innerHTML = '';
-  }
-  parentElement.insertAdjacentHTML(position, htmlStrings.join(''));
-}
+// export function renderListWithTemplate(templateFn, parentElement, list, position = "afterbegin", clear=false){
+//   const htmlStrings = list.map(templateFn);
+//   //use clear to wipe the element before loading with the template
+//   if (clear){
+//     parentElement.innerHTML = '';
+//   }
+//   parentElement.insertAdjacentHTML(position, htmlStrings.join(''));
+// }
 /*
 ░█▀▄░█▀▀░█▀█░█▀▄░█▀▀░█▀▄░░▀█▀░█▀▀░█▄█░█▀█░█░░░█▀█░▀█▀░█▀▀
 ░█▀▄░█▀▀░█░█░█░█░█▀▀░█▀▄░░░█░░█▀▀░█░█░█▀▀░█░░░█▀█░░█░░█▀▀
@@ -67,11 +60,7 @@ export function renderWithTemplate(templateFn, parentElement, data, callback, po
   parentElement.insertAdjacentHTML(position, templateFn);
 }
 
-/* 
-░█░░░█▀█░█▀█░█▀▄░░█░█░█▀▀░█▀█░█▀▄░█▀▀░█▀▄░░░█░█▀▀░█▀█░█▀█░▀█▀░█▀▀░█▀▄
-░█░░░█░█░█▀█░█░█░░█▀█░█▀▀░█▀█░█░█░█▀▀░█▀▄░▄▀░░█▀▀░█░█░█░█░░█░░█▀▀░█▀▄
-░▀▀▀░▀▀▀░▀░▀░▀▀░░░▀░▀░▀▀▀░▀░▀░▀▀░░▀▀▀░▀░▀░▀░░░▀░░░▀▀▀░▀▀▀░░▀░░▀▀▀░▀░▀
-*/
+/* Load header and footer */
 export async function loadHeaderFooter(){
   //grab header/footer elements
   const header = document.getElementById('main-header');
@@ -81,9 +70,6 @@ export async function loadHeaderFooter(){
   const footerTemplate = await loadTemplate('../partials/footer.html');
   renderWithTemplate(headerTemplate, header);
   renderWithTemplate(footerTemplate, footer);
-  renderCartCount(); //recall the renderCartCount to update backpack icon
-  //moved renderCartCount into here so it's loaded after the Header/Footer is created since that is an async function.
-  renderCartCount()
 }
 //fetch the template info
 //note this is generic so could be reused if needed.
@@ -93,25 +79,6 @@ export async function loadTemplate(path) {
   return template
 }
 
-/* 
-░█▀▀░█▀█░█▀▄░▀█▀░░█▀▀░█▀█░█░█░█▀█░▀█▀░█▀▀░█▀▄
-░█░░░█▀█░█▀▄░░█░░░█░░░█░█░█░█░█░█░░█░░█▀▀░█▀▄
-░▀▀▀░▀░▀░▀░▀░░▀░░░▀▀▀░▀▀▀░▀▀▀░▀░▀░░▀░░▀▀▀░▀░▀
-*/
-//cart superscript
-export function renderCartCount(){
-  const cartCounter = document.getElementById('cart-count');
-  const cartCount = getCartCount();
-  //check if cart has items to toggle visibility
-  if (cartCount>0){
-    showElement(cartCounter);
-  }
-  else{
-    hideElement(cartCounter);
-  }
-  //populate the div w/ the count
-  cartCounter.innerText = cartCount;
-}
 
 /* 
 ░█░█░▀█▀░█▀▄░█▀▀░░█▀▀░█░░░█▀▀░█▄█░█▀▀░█▀█░▀█▀
@@ -124,10 +91,10 @@ export function showElement(element) {
   element.classList.add('visible');
   element.classList.remove('hidden');
 }
-export function hideElement(element) {
-  element.classList.add('hidden');
-  element.classList.remove('visible');
-}
+// export function hideElement(element) {
+//   element.classList.add('hidden');
+//   element.classList.remove('visible');
+// }
 export function getCartCount() {
   const cart = getLocalStorage('so-cart');
   let cartCount = 0;
