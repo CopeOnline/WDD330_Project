@@ -4,7 +4,7 @@
     //class to handle productListing info.
     //filter out bad id's for tents.  May need a diff way to filter later?
 
-import { renderListWithTemplate, capitalizeWord} from "./utils.mjs";
+// import { renderListWithTemplate, capitalizeWord} from "./utils.mjs";
 
 //Template literal for product cards on main page
 function productCardTemplate(product){
@@ -38,7 +38,7 @@ export default class ProductList{
     }
     renderList(productList){
         //filter out bad products before sending to render
-        this.filter(productList);
+
         renderListWithTemplate(productCardTemplate, this.listElement, productList, 'afterbegin', false);
     }
     //passes the info into the html for breadcrumb
@@ -51,16 +51,6 @@ export default class ProductList{
     counter(productList){
         Object.keys(productList).forEach(key => {
             this.productCount += 1;
-        });
-    }
-    filter(productList){
-        //filtering out by hardcoded id.  feels brute force but not seeing another way to filter?
-        const idFilters = ["880RT", "989CG"];
-        Object.keys(productList).forEach(key => {
-            const product = productList[key];
-            if (idFilters.includes(product.Id)) {
-                delete productList[key];
-            }
         });
     }
 }

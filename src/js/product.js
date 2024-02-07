@@ -11,7 +11,7 @@ import { loadHeaderFooter, getParams } from './utils.mjs';
 //wk3
 loadHeaderFooter();
 
-const productId = getParams('product');
+const productId = getParams(this.value);
 const dataSource = new ExternalServices();
 const product = new ProductDetails(productId, dataSource);
 product.init();
