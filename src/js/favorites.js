@@ -1,11 +1,11 @@
 //used to populate cart/index.html data
 
-import { loadHeaderFooter, renderCartCount } from './utils.mjs';
-import ShoppingCart from './ShoppingCart.mjs';
+import { loadHeaderFooter } from './utils.mjs';
+//import ShoppingCart from './ShoppingCart.mjs';
 
 loadHeaderFooter(); //load the header/footer templates
 
-const cart = new ShoppingCart('so-cart', '.product-list'); //Create new instance of Shopping Cart
+//const cart = new ShoppingCart('so-cart', '.product-list'); //Create new instance of Shopping Cart
 cart.renderCartContents(); //pull cart contents from local storage
 cart.calculateTotal(); //
 //EVENT LISTENDER FOR CART DELETE BUTTONS

@@ -1,8 +1,8 @@
 //used to populate cart/index.html data
 import {
   getLocalStorage,
-  hideElement,
-  showElement,
+  // hideElement,
+  // showElement,
   getCartCount,
 } from './utils.mjs';
 
@@ -12,15 +12,15 @@ export default class ShoppingCart {
     this.key = key;
     this.parentSelector = parentSelector;
   }
-  //RENDER CART CONTENTS
-  renderCartContents() {
-    const cartItems = getLocalStorage(this.key);
-    //added this check so js doesn't error out if cart is empty
-    if (cartItems != null && cartItems.length>0){
-      const htmlItems = cartItems.map((item) => cartItemTemplate(item));
-      document.querySelector(this.parentSelector).innerHTML = htmlItems.join('');
-    }
-  }
+  // //RENDER CART CONTENTS
+  // renderCartContents() {
+  //   const cartItems = getLocalStorage(this.key);
+  //   //added this check so js doesn't error out if cart is empty
+  //   if (cartItems != null && cartItems.length>0){
+  //     const htmlItems = cartItems.map((item) => cartItemTemplate(item));
+  //     document.querySelector(this.parentSelector).innerHTML = htmlItems.join('');
+  //   }
+  // }
   //DELETE CART ITEMS
   removeItem(id) {
     var cartItems = getLocalStorage('so-cart');
