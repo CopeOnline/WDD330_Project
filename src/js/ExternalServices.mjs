@@ -1,6 +1,7 @@
+import { APIURL, INITIAL, APIKEY, APIHOST } from "./const.mjs";
 
 //Grabs the Product Info from json
-async function convertToJson(res) {
+export async function convertToJson(res) {
   //convert reponse to json to collect all the info the server passes back
   const jsonRes = await res.json();
   //console.log('json',JSON.stringify(jsonRes))
@@ -16,15 +17,14 @@ async function convertToJson(res) {
 export default class ExternalServices {
   async getData(body) {
 
-    const url = 'https://tourist-attraction.p.rapidapi.com/currencies';
+    const url = APIURL + INITIAL[0];
+    console.log(url)
     const options = {
 	  method: 'GET',
 	  headers: {
-		 'X-RapidAPI-Key': '663abc4daamshb6288e660f99261p1d2a18jsn56dea8046688',
-		'X-RapidAPI-Host': 'tourist-attraction.p.rapidapi.com'
+		 'X-RapidAPI-Key': APIKEY,
+		 'X-RapidAPI-Host': APIHOST
 	    },
-
-    
     };
 
     try {
