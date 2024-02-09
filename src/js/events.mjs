@@ -1,4 +1,4 @@
-import { setClick, qs } from "./utils.mjs"
+
 
 export function prepareDoc(){
     document.addEventListener("readystatechange", (e) => {
@@ -31,8 +31,6 @@ export function dropMenuEvents(){
     return category;
 };
     
-
-
 
 
 
