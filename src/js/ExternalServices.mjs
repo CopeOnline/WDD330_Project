@@ -18,7 +18,6 @@ export default class ExternalServices {
   async getData(body) {
 
     const url = APIURL + INITIAL[0];
-    console.log(url)
     const options = {
 	  method: 'GET',
 	  headers: {

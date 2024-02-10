@@ -13,7 +13,6 @@ prepareDoc();
 let search = submit();
 let parms = dropMenuEvents();
 
-console.log(APIKEY);
 
 //setLocalStorage('crncs', new ExternalServices(null, url));
 const dataSet = new ExternalServices(APIURL);
