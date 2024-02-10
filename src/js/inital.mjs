@@ -1,11 +1,11 @@
 import { APIKEY, APIHOST, APIURL, INITIAL } from "./const.mjs";
-import { getLocalStorage, setLocalStorage } from "./utils.mjs";
+import { setLocalStorage } from "./utils.mjs";
 
 export async function loadNewData(element){
 
-    if (localStorage.getItem(element) === null){
-        return
-    }else{
+    // if (localStorage.getItem(element) === null){
+    //     return
+    // }else{
     const keys = ['crncs', 'lang']
     const keyINDX = INITIAL.indexOf(element)
     const url = APIURL + element;
@@ -25,6 +25,6 @@ try {
 	console.log(result);
 } catch (error) {
 	console.error(error);
-}
+// }
 }
 }

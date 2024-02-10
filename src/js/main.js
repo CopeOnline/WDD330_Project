@@ -5,7 +5,7 @@ import { dropMenuEvents, prepareDoc, submit } from './events.mjs';
 import { loadHeaderFooter } from './utils.mjs';
 import { loadNewData } from './inital.mjs';
 
-INITIAL.forEach((element) => loadNewData(element));
+const bgSearch = INITIAL.forEach((element) => loadNewData(element));
 
 //load header/footer wk 3
 loadHeaderFooter();
