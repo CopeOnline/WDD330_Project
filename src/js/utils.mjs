@@ -182,3 +182,4 @@ export function removeAllAlerts(element, fade=false){
     alerts.forEach((alert)=> document.getElementById(element).removeChild(alert));
   }
 }
+
