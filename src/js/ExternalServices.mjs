@@ -29,7 +29,6 @@ export default class ExternalServices {
     try {
 	  const response = await fetch(url, options);
 	  const data = await convertToJson(response);
-    console.table(data);
 	  return data.Result;
   }  catch (error) {
 	  console.error(error);
