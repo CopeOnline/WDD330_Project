@@ -5,9 +5,14 @@ import { loadHeaderFooter } from './utils.mjs';
 import { loadNewData } from './inital.mjs';
 
 
-loadNewData('currencies', "crncs")
-setTimeout(() => { loadNewData('languages', 'lang')}, 2000)
+async function initializeOptions( ){
+    localStorage.clear()
+    await loadNewData('currencies', "crncs")
+    await setTimeout(() => { loadNewData('languages', 'lang')}, 1200)
+}
 
+
+initializeOptions()
 //load header/footer wk 3
 loadHeaderFooter();
 prepareDoc();
