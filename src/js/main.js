@@ -1,5 +1,5 @@
 //js for the main html page
-import { APIKEY, APIURL, INITIAL } from './const.mjs';
+import { APIURL, INITIAL } from './const.mjs';
 import ExternalServices from './ExternalServices.mjs';
 import { dropMenuEvents, prepareDoc, submit } from './events.mjs';
 import { loadHeaderFooter } from './utils.mjs';
