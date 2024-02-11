@@ -2,6 +2,11 @@ import { APIKEY, APIHOST, APIURL, INITIAL } from "./const.mjs";
 import { setLocalStorage } from "./utils.mjs";
 
 
+export async function initializeOptions( ){
+    localStorage.clear()
+    await loadNewData('currencies', "crncs")
+    await setTimeout(() => { loadNewData('languages', 'lang')}, 1200)
+};
 
 export async function loadNewData(element, key){
 

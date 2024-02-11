@@ -2,14 +2,7 @@
 import ExternalServices from './ExternalServices.mjs';
 import { dropMenuEvents, prepareDoc, submit } from './events.mjs';
 import { loadHeaderFooter } from './utils.mjs';
-import { loadNewData } from './inital.mjs';
-
-
-async function initializeOptions( ){
-    localStorage.clear()
-    await loadNewData('currencies', "crncs")
-    await setTimeout(() => { loadNewData('languages', 'lang')}, 1200)
-}
+import { initializeOptions } from './inital.mjs';
 
 
 initializeOptions()
