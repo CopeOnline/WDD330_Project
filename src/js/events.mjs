@@ -1,5 +1,3 @@
-import { loadSamples } from "./body";
-import { SAMPLES } from "./const.mjs";
 
 
 
@@ -17,7 +15,7 @@ export function submit() {
         // console.log(document.querySelector('#search').value, 'value');
         SAMPLES.push(`q: ${document.querySelector('#search').value}`)
         document.querySelector('#search').value = '';
-        loadSamples()
+        //loadSearch()
     });
 }
 export function dropMenuEvents(){

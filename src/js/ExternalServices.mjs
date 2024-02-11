@@ -1,4 +1,4 @@
-import { APIURL, INITIAL, APIKEY, APIHOST } from "./const.mjs";
+import { APIURL, APIKEY, APIHOST, INITIAL, I, } from "./const.mjs";
 
 //Grabs the Product Info from json
 export async function convertToJson(res) {
@@ -15,15 +15,17 @@ export async function convertToJson(res) {
 }
 
 export default class ExternalServices {
+  
   async getData(body) {
 
-    const url = APIURL + INITIAL[0];
+    const url = APIURL + INITIAL[I];
     const options = {
 	  method: 'GET',
 	  headers: {
 		 'X-RapidAPI-Key': APIKEY,
 		 'X-RapidAPI-Host': APIHOST
 	    },
+      body
     };
 
     try {

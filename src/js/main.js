@@ -3,7 +3,6 @@ import { dropMenuEvents, prepareDoc, submit } from './events.mjs';
 import { loadHeaderFooter, sampleIds } from './utils.mjs';
 import { initializeOptions } from './inital.mjs';
 import { loadSamples } from './body';
-import { NUMS } from './const.mjs';
 
 
 
@@ -12,5 +11,5 @@ loadHeaderFooter();
 prepareDoc();
 submit();
 dropMenuEvents();
-NUMS.push(sampleIds());
-
+sampleIds();
+loadSamples();

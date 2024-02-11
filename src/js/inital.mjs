@@ -1,4 +1,4 @@
-import { APIKEY, APIHOST, APIURL, INITIAL } from "./const.mjs";
+import { APIKEY, APIHOST, APIURL,  } from "./const.mjs";
 import { setLocalStorage } from "./utils.mjs";
 
 
@@ -9,14 +9,13 @@ export async function initializeOptions( ){
 };
 
 export async function loadNewData(element, key){
-
     const url = APIURL + element;
     const options = {
 	method: 'GET',
 	headers: {
 		'X-RapidAPI-Key': APIKEY,
 		'X-RapidAPI-Host': APIHOST
-	}
+	},
 };
 
 try {
@@ -29,3 +28,4 @@ try {
 	console.error(error);
 };
 };
+

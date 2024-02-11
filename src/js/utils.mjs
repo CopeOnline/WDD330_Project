@@ -1,3 +1,5 @@
+import { NUMS } from "./const.mjs";
+
 // wrapper for querySelector...returns matching element
 export function qs(selector, parent = document) {
   return parent.querySelector(selector);
@@ -29,12 +31,12 @@ export function setClick(selector, callback) {
   console.log('listener loaded')
 }
 /* getParams */
-export function getParams(loc, lang){
-  console.log(loc, 'loc', lang, 'lang')
+export function getParams(param){
+  console.log(param)
   const queryString = window.location.search;
   const urlParams = new URLSearchParams(queryString);
-  const product = urlParams.get(loc, lang)
-  return product;
+  const location = urlParams.get(param)
+  return location;
 }
 
 /* renderListWithTemplate */
@@ -105,13 +107,11 @@ export function stopAnimateCartIcon() {
 }
 
 export function sampleIds(){
-  let nums = [];
   let count = 0;
   while (count < 4 ){
-    nums.push(`location_id: ${randomNum()}`)
+    NUMS.push(`location_id: '${randomNum()}'`)
     count++
   }
-  return nums
 }
 
 

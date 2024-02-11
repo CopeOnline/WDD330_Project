@@ -1,25 +1,23 @@
-import { SAMPLES, NUMS } from './const.mjs';
-import { getParams } from './utils.mjs';
-//import ExternalServices from './ExternalServices.mjs';
+import { NUMS, SAMPLECRNCS, SAMPLELANG,  } from './const.mjs';
+import ExternalServices from './ExternalServices.mjs';
 // body: new URLSearchParams({
 //     location_id: '8797440',
 //     language: 'en_US',
 //     currency: 'USD',
 //     offset: '0',
 // });
+const dataSource = [];
+let body = '';
+export async function loadSamples() {
 
+    for (let i = 0; i < NUMS.length; i++) {
+        
+    body = `body: new URLSearchParams({(${NUMS[i]}, ${SAMPLELANG}, ${SAMPLECRNCS})})`;
 
-export function loadSamples() {
-
-    NUMS.forEach(async (element) => {
-    console.log(element, 'element')    
-    await console.log(SAMPLES, 'samples')
-    let body = getParams(element, SAMPLES);
-    console.log(body, 'category');
-    //const dataSource = new ExternalServices();
+    dataSource.push(new ExternalServices());
     // then get the element we want the product list to render in
-    const listElement = document.querySelector('.search');
-    console.log(listElement, 'listelemnt');
+    //const listElement = document.querySelector('.search');
+    //console.log(listElement, 'listelemnt');
     // then create an instance of our ProductList class and send it the correct information.
     //const myList = new ProductList(category, dataSource, listElement);
 
@@ -28,5 +26,6 @@ export function loadSamples() {
 
     //add category name
     //const categoryElement = document.getElementById('category-name');
-    });
+    };
+    console.table(dataSource);
 };
