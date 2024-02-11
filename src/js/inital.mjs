@@ -10,9 +10,6 @@ export async function initializeOptions( ){
 
 export async function loadNewData(element, key){
 
-    // if (localStorage.getItem(element) === null){
-    //     return
-    // }else{
     const url = APIURL + element;
     const options = {
 	method: 'GET',
@@ -30,6 +27,5 @@ try {
 	console.log(result);
 } catch (error) {
 	console.error(error);
-// }
-}
-}
+};
+};

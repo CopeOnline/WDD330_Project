@@ -29,10 +29,11 @@ export function setClick(selector, callback) {
   console.log('listener loaded')
 }
 /* getParams */
-export function getParams(param){
+export function getParams(loc, lang){
+  console.log(loc, 'loc', lang, 'lang')
   const queryString = window.location.search;
   const urlParams = new URLSearchParams(queryString);
-  const product = urlParams.get(param)
+  const product = urlParams.get(loc, lang)
   return product;
 }
 
@@ -46,11 +47,8 @@ export function getParams(param){
 //   }
 //   parentElement.insertAdjacentHTML(position, htmlStrings.join(''));
 // }
-/*
-░█▀▄░█▀▀░█▀█░█▀▄░█▀▀░█▀▄░░▀█▀░█▀▀░█▄█░█▀█░█░░░█▀█░▀█▀░█▀▀
-░█▀▄░█▀▀░█░█░█░█░█▀▀░█▀▄░░░█░░█▀▀░█░█░█▀▀░█░░░█▀█░░█░░█▀▀
-░▀░▀░▀▀▀░▀░▀░▀▀░░▀▀▀░▀░▀░░░▀░░▀▀▀░▀░▀░▀░░░▀▀▀░▀░▀░░▀░░▀▀▀
-*/
+
+//Render Template
 export function renderWithTemplate(templateFn, parentElement, data, callback, position = "afterbegin"){
   //No idea what this is for...
   if(callback) {
@@ -80,11 +78,7 @@ export async function loadTemplate(path) {
 }
 
 
-/* 
-░█░█░▀█▀░█▀▄░█▀▀░░█▀▀░█░░░█▀▀░█▄█░█▀▀░█▀█░▀█▀
-░█▀█░░█░░█░█░█▀▀░░█▀▀░█░░░█▀▀░█░█░█▀▀░█░█░░█░
-░▀░▀░▀▀▀░▀▀░░▀▀▀░░▀▀▀░▀▀▀░▀▀▀░▀░▀░▀▀▀░▀░▀░░▀░
-*/
+//Hide element
 //Toggle visibility of the cart counter depending on if something is in it
 //default is hidden
 export function showElement(element) {
@@ -104,82 +98,25 @@ export function getCartCount() {
   return cartCount;
 }
 
-/* 
-░█▀▀░█▀█░█▀▄░▀█▀░░█▀█░█▀█░▀█▀░█▄█░█▀█░▀█▀░▀█▀░█▀█░█▀█
-░█░░░█▀█░█▀▄░░█░░░█▀█░█░█░░█░░█░█░█▀█░░█░░░█░░█░█░█░█
-░▀▀▀░▀░▀░▀░▀░░▀░░░▀░▀░▀░▀░▀▀▀░▀░▀░▀░▀░░▀░░▀▀▀░▀▀▀░▀░▀
-*/
-
-export function startAnimateCartIcon() {
-  const cart = document.querySelector('.cart');
-  cart.classList.add('animate');
-}
 
 export function stopAnimateCartIcon() {
   const cart = document.querySelector('.cart');
   cart.classList.remove('animate');
 }
 
-
-/* 
-░█▀▀░█░░░█▀▀░█▀█░█▀█░░░░░░░█▀▀░█▀█░█▀█░▀█▀░▀█▀░█▀█░█░░░▀█▀░▀▀█░█▀▀
-░█░░░█░░░█▀▀░█▀█░█░█░░▄█▄░░█░░░█▀█░█▀▀░░█░░░█░░█▀█░█░░░░█░░▄▀░░█▀▀
-░▀▀▀░▀▀▀░▀▀▀░▀░▀░▀░▀░░░▀░░░▀▀▀░▀░▀░▀░░░▀▀▀░░▀░░▀░▀░▀▀▀░▀▀▀░▀▀▀░▀▀▀
-*/
-//remove dashes and capitalize a word used for category in a couple places
-export function capitalizeWord(word) {
-  if (word !== null) {
-  word = word.replace(/-/g, ' ');
-  const words = word.split(' ');
-  const capitalizedWords = words.map(w => w.charAt(0).toUpperCase() + w.slice(1));
-  return capitalizedWords.join(' ');}
-}
-
-
-/* 
-░█▀█░█▀█░█▀█░░░░░█░█░█▀█░░█▄█░█▀▀░█▀▀░█▀▀░█▀█░█▀▀░█▀▀
-░█▀▀░█░█░█▀▀░▄▄▄░█░█░█▀▀░░█░█░█▀▀░▀▀█░▀▀█░█▀█░█░█░█▀▀
-░▀░░░▀▀▀░▀░░░░░░░▀▀▀░▀░░░░▀░▀░▀▀▀░▀▀▀░▀▀▀░▀░▀░▀▀▀░▀▀▀
-*/
-//Checkout Error Messaging
-export function alertMessage(message, scroll=true, element){
-  const alert = document.createElement('div');
-  alert.classList.add('alert');
-  alert.innerHTML = `<p>${message}</p><span>X</span>`
-  //remove a message if its clicked on
-  alert.addEventListener("click", function (e) {
-    if (e.target.tagName == "SPAN") {
-      myElement.removeChild(this);
-    }
-  });
-  //add to the element doc
-  const myElement = document.getElementById(element);
-  myElement.prepend(alert);
-  //scroll to top
-  if(scroll){
-    window.scrollTo(0,0);
-  } 
-}
-
-/* 
-░█▀▄░█▀▀░█▄█░█▀█░█░█░█▀▀░░█▄█░█▀▀░█▀▀░█▀▀░█▀█░█▀▀░█▀▀
-░█▀▄░█▀▀░█░█░█░█░▀▄▀░█▀▀░░█░█░█▀▀░▀▀█░▀▀█░█▀█░█░█░█▀▀
-░▀░▀░▀▀▀░▀░▀░▀▀▀░░▀░░▀▀▀░░▀░▀░▀▀▀░▀▀▀░▀▀▀░▀░▀░▀▀▀░▀▀▀
-*/
-export function removeAllAlerts(element, fade=false){
-  //if fade=true, it'll apply the fade-out class which animates a fadeout, then it removes the element
-  //else, it just removes the element (cause it was clicked)
-  const alerts = document.querySelectorAll('.alert');
-  if (fade!=false){
-    alerts.forEach((alert) => {
-      alert.classList.add('fade-out');
-      alert.addEventListener('animationend', () => {
-        alerts.forEach((alert)=> document.getElementById(element).removeChild(alert));
-      });
-    });
+export function sampleIds(){
+  let nums = [];
+  let count = 0;
+  while (count < 4 ){
+    nums.push(`location_id: ${randomNum()}`)
+    count++
   }
-  else{
-    alerts.forEach((alert)=> document.getElementById(element).removeChild(alert));
-  }
+  return nums
 }
 
+
+export function randomNum() {
+  const min = 2
+  const max = 10000000
+  return Math.floor(Math.random() * (max - min) + min);
+}
