@@ -1,4 +1,5 @@
 import { SEARCH } from "./const.mjs";
+import { loadSearch } from "./body";
 
 
 export function prepareDoc(){
@@ -12,8 +13,8 @@ export function submit() {
     document.addEventListener('submit', (e) => {
         e.preventDefault();
         // console.log(document.querySelector('#search').value, 'value');
-        SEARCH.push(`q: ${document.querySelector('#search').value}`)
-        document.querySelector('#search').value = '';
+        SEARCH.push(`q: ${document.querySelector('#q').value}`)
+        document.querySelector('#q').value = '';
         loadSearch()
     });
 }
