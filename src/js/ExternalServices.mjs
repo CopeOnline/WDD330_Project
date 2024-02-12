@@ -1,11 +1,10 @@
-import { APIURL, APIKEY, APIHOST, INITIAL, I, } from "./const.mjs";
+import { APIURL, APIKEY, APIHOST, INITIAL, I, NUMS, CRNCS, LANG, SAMPLES} from "./const.mjs";
+import { setLocalStorage } from "./utils.mjs";
 
-//Grabs the Product Info from json
-export async function convertToJson(res) {
-  //convert reponse to json to collect all the info the server passes back
+//Grabs the Info from json
+export async function convertToJson(res, i) {
   const jsonRes = await res.json();
-  //console.log('json',JSON.stringify(jsonRes))
-  //if check if respone = ok
+  setLocalStorage('start'[i], jsonRes)
   if (res.ok) {
     return jsonRes;
   } else {
@@ -13,28 +12,40 @@ export async function convertToJson(res) {
     throw {name: "servicesError", message: jsonRes};
   }
 }
+let url = "";
+let options = '';
 
-export default class ExternalServices {
-  
-  async getData(body) {
+export async function prepareData(i) {
+      url = APIURL + INITIAL[I];
+      const locId = SAMPLES[i];
+      console.log(locId);
+      options = {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/x-www-form-urlencoded',
+        'X-RapidAPI-Key': APIKEY,
+        'X-RapidAPI-Host': APIHOST
+        },
+        body: new URLSearchParams({
+          location_id: locId, 
+          language: LANG, 
+          currency: CRNCS,
+          offset: '0'
+        })
+      };
+      console.log(url, options)
+    getData(url, options, i)
+  };
 
-    const url = APIURL + INITIAL[I];
-    const options = {
-	  method: 'GET',
-	  headers: {
-		 'X-RapidAPI-Key': APIKEY,
-		 'X-RapidAPI-Host': APIHOST
-	    },
-      body
-    };
+  async function getData(url, options, i){
 
     try {
 	  const response = await fetch(url, options);
-	  const data = await convertToJson(response);
+	  const data = await convertToJson(response, i);
+    console.log(data, 'data')
 	  return data.Result;
   }  catch (error) {
 	  console.error(error);
   }
-  }
- }
+  };
 

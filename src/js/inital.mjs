@@ -1,11 +1,11 @@
-import { APIKEY, APIHOST, APIURL,  } from "./const.mjs";
+import { APIKEY, APIHOST, APIURL  } from "./const.mjs";
 import { setLocalStorage } from "./utils.mjs";
 
 
 export async function initializeOptions( ){
     localStorage.clear()
     await loadNewData('currencies', "crncs")
-    await setTimeout(() => { loadNewData('languages', 'lang')}, 1200)
+    await loadNewData('languages', 'lang')
 };
 
 export async function loadNewData(element, key){
@@ -22,8 +22,6 @@ try {
 	const response = await fetch(url, options);
 	const result = await response.json();
     setLocalStorage(key, result)
-	console.log('success')
-	console.log(result);
 } catch (error) {
 	console.error(error);
 };

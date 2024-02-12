@@ -105,18 +105,3 @@ export function stopAnimateCartIcon() {
   const cart = document.querySelector('.cart');
   cart.classList.remove('animate');
 }
-
-export function sampleIds(){
-  let count = 0;
-  while (count < 4 ){
-    NUMS.push(`location_id: '${randomNum()}'`)
-    count++
-  }
-}
-
-
-export function randomNum() {
-  const min = 2
-  const max = 10000000
-  return Math.floor(Math.random() * (max - min) + min);
-}
