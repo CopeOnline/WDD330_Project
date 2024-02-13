@@ -14,12 +14,13 @@
                 <h2 class="inst">
                     Search for a location ANYWHERE in the World
                 </h2>
-                <form id="formSearch" action="../searchResults/index.html">
+                <form id="formSearch" onsubmit='location.href="../searchResults/index.html"' >
                     <input
                         type="text"
                         name="typeahead"
                         id="q"
                         placeholder="Pick a Location"
+                        required
                     />
                 </form>
                 <div class="thumbnails"></div>

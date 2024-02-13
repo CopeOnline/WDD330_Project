@@ -2,9 +2,9 @@ import { APIURL, APIKEY, APIHOST, INITIAL, CRNCS, LANG} from "./const.mjs";
 import { setLocalStorage } from "./utils.mjs";
 
 //Grabs the Info from json
-export async function convertToJson(res, i) {
+export async function convertToJson(res) {
   const jsonRes = await res.json();
-  setLocalStorage('search', jsonRes)
+  localStorage.setItem('search', JSON.stringify(jsonRes))
   if (res.ok) {
     return jsonRes;
   } else {
@@ -28,8 +28,7 @@ export async function prepareSearchData(myObj, i){
       language: LANG, 
     })
   };
-  console.log(url, options)
-getData(url, options, i, action)
+getData(url, options, i)
 };
 
 
@@ -50,15 +49,14 @@ export async function prepareData(myObj, i) {
           offset: '0'
         })
       };
-      console.log(url, options)
-    getData(url, options, i, action)
+    getData(url, options, i)
   };
 
-  async function getData(url, options, i){
+  async function getData(url, options){
 
     try {
 	  const response = await fetch(url, options);
-	  const data = await convertToJson(response, i);
+	  const data = await convertToJson(response);
     console.log(data, 'data')
 	  return data.Result;
   }  catch (error) {

@@ -1,18 +1,19 @@
 import { prepareData, prepareSearchData } from './ExternalServices.mjs';
 import { INITIAL } from './const.mjs';
 
-export async function loadSearch(action) {
+export async function loadSearch() {
     let i;
+    let data;
     const mop = sessionStorage.getItem('searchTerm');
     const myObj = JSON.parse(mop);
 
     if (myObj[0].Loc === 'typeahead') {
         i = INITIAL.indexOf(myObj[0].Loc);
-        console.log(i);
-        window.location = action;
-        prepareSearchData(myObj, i, action);
+        
+        data = prepareSearchData(myObj, i);
+        console.log(data);
     } else {
-        prepareData(myObj, i, action);
+        data = prepareData(myObj, i);
 
         // then get the element we want the product list to render in
         //const listElement = document.querySelector('.search');
@@ -26,4 +27,5 @@ export async function loadSearch(action) {
         //add category name
         //const categoryElement = document.getElementById('category-name');
     }
+    
 }

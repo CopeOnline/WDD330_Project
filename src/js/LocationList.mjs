@@ -19,32 +19,31 @@ function productCardTemplate(product){
 }
 
 
-//Product List class used on main page to list out products from json, 
+//Product List class used on main page to list out locations from json, 
 //calls renderList to actually display the info from the ProductList class using the template
-//filter is used to manually filter out broken products in the json file.  
+//filter is used to manually filter out broken locations in the json file.  
 //TODO - I'd like to move the filter IDs into a JSON and pull from that dynamically.  So an admin could just keep the filter.json file updated on what products they don't want displayed.  
-export default class ProductList{
+export default class LocationList{
     constructor(category, dataSource, listElement){
         this.category = category;
         this.dataSource = dataSource;
         this.listElement = document.querySelector(".product-list");
-        this.productCount = 0;
     }
     async init(){
-        const productList = await this.dataSource.getData(this.category);
+        //const productList = await this.dataSource.getData(this.category);
         this.renderList(productList)
         this.counter(productList)
         this.renderBreadCrumb(productList)
     }
     renderList(productList){
-        //filter out bad products before sending to render
+        //filter out bad locations before sending to render
 
     renderListWithTemplate(productCardTemplate, this.listElement, productList, 'afterbegin', false);
     }
     //counts number of items in the list for the breadcrumb. 
-    counter(productList){
-        Object.keys(productList).forEach(key => {
-            this.productCount += 1;
+    counter(locationList){
+        Object.keys(locationList).forEach(key => {
+            this.locationCount += 1;
         });
     }
 }

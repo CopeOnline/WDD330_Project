@@ -13,13 +13,11 @@ export function submit() {
         e.preventDefault();
         const searchTerm = [];
         let obj = new Object();
-        const action = e.target.action;
         obj.Loc = document.querySelector('#q').name;
         obj.Term = (`${document.querySelector('#q').value}`);
         searchTerm.push(obj)
         sessionStorage.setItem('searchTerm', (JSON.stringify(searchTerm)));
         document.querySelector('#q').value = '';
-        loadSearch(action)
     });
 }
 // export function dropMenuEvents(){
