@@ -215,7 +215,7 @@ header {
     float: inline-end;
 }
 .userSearch input[type='text'] {
-    float:none;
+    float: none;
     padding: 6px;
     margin: 8px;
     border: solid #8d8a8a;

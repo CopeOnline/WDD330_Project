@@ -30,11 +30,10 @@ header {
     justify-content: space-between;
     padding: 0 10px;
 }
-.inst{
+.inst {
     position: relative;
     margin-top: 2em;
     color: #a3333d;
-
 }
 .logo {
     line-height: 60px;
@@ -52,13 +51,13 @@ header {
 .hero {
     position: relative;
 }
-.spacer{
+.spacer {
     display: inline-block;
     width: 2em;
     height: 12em;
 }
 #formSearch {
-    width:fit-content;
+    width: fit-content;
     display: inline-block;
 }
 #formSearch input#q[type='text'] {
@@ -91,7 +90,7 @@ header {
     border-bottom: 2px solid var(--primary-color);
 }
 #main-footer {
-    display:block;
-    position:fixed;
-    bottom:0;
+    display: block;
+    position: fixed;
+    bottom: 0;
 }

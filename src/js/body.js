@@ -1,4 +1,4 @@
-import { CRNCS, SAMPLES } from './const.mjs';
+import { SAMPLES } from './const.mjs';
 import { prepareData } from './ExternalServices.mjs';
 
 export async function loadSearch() {
