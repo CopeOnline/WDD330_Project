@@ -1,4 +1,3 @@
-import { SEARCH } from "./const.mjs";
 import { loadSearch } from "./body";
 
 
@@ -12,10 +11,15 @@ export function prepareDoc(){
 export function submit() {
     document.addEventListener('submit', (e) => {
         e.preventDefault();
-        // console.log(document.querySelector('#search').value, 'value');
-        sessionStorage.setItem('searchQ', `q: ${document.querySelector('#q').value}`)
+        const searchTerm = [];
+        let obj = new Object();
+        const action = e.target.action;
+        obj.Loc = document.querySelector('#q').name;
+        obj.Term = (`${document.querySelector('#q').value}`);
+        searchTerm.push(obj)
+        sessionStorage.setItem('searchTerm', (JSON.stringify(searchTerm)));
         document.querySelector('#q').value = '';
-        loadSearch()
+        loadSearch(action)
     });
 }
 // export function dropMenuEvents(){

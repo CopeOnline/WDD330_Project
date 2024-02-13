@@ -1,7 +1,7 @@
 //Feeds into product.js which feeds the product_pages/index.html
 //contain code to dynamically produce the product details
 //also contains the addToCart method
-import {setLocalStorage, renderCartCount, capitalizeWord, alertMessage, removeAllAlerts, startAnimateCartIcon, stopAnimateCartIcon} from './utils.mjs';
+import {setLocalStorage,  startAnimateCartIcon, stopAnimateCartIcon} from './utils.mjs';
 
 
 //template literal to populate the detail information for the given product
@@ -44,16 +44,16 @@ export default class ProductDetail {
         this.renderBreadCrumb(this.product.Category);
     }
     //simply adds the product info to the local storage.
-    addToCart(){
-            setLocalStorage('so-cart', this.product);
-            //added here to update cart counter each time you add an item
-            renderCartCount();
-            removeAllAlerts('add-to-cart-message');
-            alertMessage(`${this.product.NameWithoutBrand} Added To Cart`, true, 'add-to-cart-message')
-            setTimeout(() => {removeAllAlerts('add-to-cart-message', true)}, 2500);
-            startAnimateCartIcon();
-            setTimeout(() => {stopAnimateCartIcon()}, 500);
-    }
+    // addToCart(){
+    //         setLocalStorage('so-cart', this.product);
+    //         //added here to update cart counter each time you add an item
+    //         renderCartCount();
+    //         removeAllAlerts('add-to-cart-message');
+    //         alertMessage(`${this.product.NameWithoutBrand} Added To Cart`, true, 'add-to-cart-message')
+    //         setTimeout(() => {removeAllAlerts('add-to-cart-message', true)}, 2500);
+    //         startAnimateCartIcon();
+    //         setTimeout(() => {stopAnimateCartIcon()}, 500);
+    // }
     //populates the details on the product page using the template
     //selector determines what element to attach the details to
     renderProductDetails(selector){
@@ -64,9 +64,4 @@ export default class ProductDetail {
             productDetailsTemplate(this.product)
         )
     } 
-    renderBreadCrumb(category){
-      const breadcrumbElement = document.getElementById('breadcrumb-category');
-      breadcrumbElement.innerHTML = `${capitalizeWord(category)}`;
-      breadcrumbElement.setAttribute('href',`../product-listing/index.html?category=${category}`);
-    }      
 }

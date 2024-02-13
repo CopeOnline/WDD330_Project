@@ -39,13 +39,7 @@ export default class ProductList{
     renderList(productList){
         //filter out bad products before sending to render
 
-        renderListWithTemplate(productCardTemplate, this.listElement, productList, 'afterbegin', false);
-    }
-    //passes the info into the html for breadcrumb
-    renderBreadCrumb(productList){
-        const breadcrumbCountElement = document.getElementById('breadcrumb-count');
-        //passing into breadcrumb
-        breadcrumbCountElement.innerHTML = `${capitalizeWord(this.category)}: ${this.productCount} Items`;
+    renderListWithTemplate(productCardTemplate, this.listElement, productList, 'afterbegin', false);
     }
     //counts number of items in the list for the breadcrumb. 
     counter(productList){

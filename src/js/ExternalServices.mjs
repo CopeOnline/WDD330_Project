@@ -1,10 +1,10 @@
-import { APIURL, APIKEY, APIHOST, INITIAL, I, NUMS, CRNCS, LANG, SAMPLES} from "./const.mjs";
+import { APIURL, APIKEY, APIHOST, INITIAL, CRNCS, LANG} from "./const.mjs";
 import { setLocalStorage } from "./utils.mjs";
 
 //Grabs the Info from json
 export async function convertToJson(res, i) {
   const jsonRes = await res.json();
-  setLocalStorage('start'[i], jsonRes)
+  setLocalStorage('search', jsonRes)
   if (res.ok) {
     return jsonRes;
   } else {
@@ -12,14 +12,31 @@ export async function convertToJson(res, i) {
     throw {name: "servicesError", message: jsonRes};
   }
 }
-let url = "";
-let options = '';
 
-export async function prepareData(i) {
-      url = APIURL + INITIAL[I];
-      const locId = SAMPLES[i];
-      console.log(locId);
-      options = {
+export async function prepareSearchData(myObj, i){
+  const url = APIURL + INITIAL[i];
+  const term = myObj[0].Term
+  const options = {
+  method: 'POST',
+  headers: {
+    'content-type': 'application/x-www-form-urlencoded',
+    'X-RapidAPI-Key': APIKEY,
+    'X-RapidAPI-Host': APIHOST
+    },
+    body: new URLSearchParams({
+      q: term, 
+      language: LANG, 
+    })
+  };
+  console.log(url, options)
+getData(url, options, i, action)
+};
+
+
+export async function prepareData(myObj, i) {
+      const url = APIURL + INITIAL[i];
+      const term = myObj[0].Term
+      const options = {
       method: 'POST',
       headers: {
         'content-type': 'application/x-www-form-urlencoded',
@@ -27,14 +44,14 @@ export async function prepareData(i) {
         'X-RapidAPI-Host': APIHOST
         },
         body: new URLSearchParams({
-          location_id: locId, 
+          location_id: term, 
           language: LANG, 
           currency: CRNCS,
           offset: '0'
         })
       };
       console.log(url, options)
-    getData(url, options, i)
+    getData(url, options, i, action)
   };
 
   async function getData(url, options, i){
