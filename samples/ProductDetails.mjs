@@ -1,7 +1,7 @@
 //Feeds into product.js which feeds the product_pages/index.html
 //contain code to dynamically produce the product details
 //also contains the addToCart method
-import {setLocalStorage,  startAnimateCartIcon, stopAnimateCartIcon} from './utils.mjs';
+
 
 
 //template literal to populate the detail information for the given product
