@@ -32,7 +32,6 @@ export function setClick(selector, callback) {
 }
 /* getParams */
 export function getParams(param){
-  console.log(param)
   const queryString = window.location.search;
   const urlParams = new URLSearchParams(queryString);
   const location = urlParams.get(param)

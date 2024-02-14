@@ -1,15 +1,14 @@
 
-import LocationDetail from './LocationDetails.mjs';
-import { loadHeaderFooter, getLocalStorage } from './utils.mjs';
+import LocationDetail from './LocationDetail.mjs';
+import { loadHeaderFooter, getLocalStorage, getParams } from './utils.mjs';
 
 loadHeaderFooter();
 
 const dataSource = getLocalStorage('search'); 
 
-const location_id = dataSource.results
-// const listElement = document.querySelector('.search');
-// then create an instance of our ProductList class and send it the correct information.
-const myList = new LocationDetail(location_id, dataSource);
+//const location_id = dataSource.results
+const Id = getParams('location_id');
+const myList = new LocationDetail(Id, dataSource);
 
 myList.init();
 

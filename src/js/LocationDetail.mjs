@@ -2,7 +2,6 @@
 
 function locationDetailsTemplate(location) {
     return `<section class="location-detail"> <h3>${location.location_string}</h3>
-      <h2 class="divider">${location.name}</h2>
       <img
         class="divider"
         src="${location.photo.images.large.url}" width="${location.photo.images.large.width}" height="${location.photo.images.large.height}"
@@ -26,17 +25,18 @@ export default class LocationDetail {
         this.dataSource = dataSource;
     }
     async init() {
-        for(const element of this.dataSource.results.data) {
-          console.log(element, 'elem')
-          this.location = element.result_object
-        
-          console.log(this.location.name, 'this loca')
-        this.renderProductDetails("main");
+        const element = this.dataSource.results.data
+        element.forEach(element => {
+          if (this.location_id === element.result_object.location_id) {
+               this.location = element.result_object
+                this.renderProductDetails("main");
 
-        document.getElementById('addToFavs')
-          .addEventListener('click', this.addToFavs);
-        }
-      };
+              document.getElementById('addToFavs')
+                .addEventListener('click', this.addToFavs);
+            }
+          });
+        };
+          
     //simply adds the product info to the local storage.
     // addToCart(){
     //         setLocalStorage('so-cart', this.product);
@@ -50,7 +50,7 @@ export default class LocationDetail {
     // }
     //populates the details on the product page using the template
     //selector determines what element to attach the details to
-    renderProductDetails(selector){
+    renderProductDetails(selector) {
         //method to generate HTML to display our product
         const element = document.querySelector(selector);
         element.insertAdjacentHTML(
@@ -58,5 +58,4 @@ export default class LocationDetail {
             locationDetailsTemplate(this.location)
         )
     } 
-
-}
+  }

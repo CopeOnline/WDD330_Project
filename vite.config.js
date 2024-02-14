@@ -13,6 +13,10 @@ export default defineConfig({
                     __dirname,
                     'src/searchResults/index.html'
                 ),
+                LocationDetails: resolve(
+                    __dirname,
+                    'src/LocationDetails/index.html'
+                ),
                 favorites: resolve(__dirname, 'src/favorites/index.html'),
             },
         },
