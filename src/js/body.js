@@ -9,7 +9,7 @@ export async function loadSearch() {
 
     if (myObj[0].Loc === 'typeahead') {
         i = INITIAL.indexOf(myObj[0].Loc);
-        
+
         data = prepareSearchData(myObj, i);
         console.log(data);
     } else {
@@ -27,5 +27,4 @@ export async function loadSearch() {
         //add category name
         //const categoryElement = document.getElementById('category-name');
     }
-    
 }

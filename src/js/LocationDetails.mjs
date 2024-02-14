@@ -1,10 +1,5 @@
-//Feeds into product.js which feeds the product_pages/index.html
-//contain code to dynamically produce the product details
-//also contains the addToCart method
 
 
-
-//template literal to populate the detail information for the given product
 function locationDetailsTemplate(location) {
     return `<section class="location-detail"> <h3>${location.location_string}</h3>
       <h2 class="divider">${location.name}</h2>
@@ -24,26 +19,20 @@ function locationDetailsTemplate(location) {
       </div></section>`;
 }
 
-//ProductDetail class.  Data is dynamically pulled from json file based on id
-//dataSource input determine the path to the json file.  So this decides what category (tent vs backpack, etc)
-//initialization actually grabs the data for the id, then calls the renderProductDetails and contains the event listener for the addToCart
-export default class ProductDetail {
+export default class LocationDetail {
     constructor(location_id, dataSource){
         this.location_id = location_id;
         this.location = {};
         this.dataSource = dataSource;
     }
     async init() {
-        // use our datasource to get the details for the current product. findProductById will return a promise! use await or .then() to process it
         for(const element of this.dataSource.results.data) {
           console.log(element, 'elem')
           this.location = element.result_object
         
           console.log(this.location.name, 'this loca')
-        // once we have the product details we can render out the HTML
         this.renderProductDetails("main");
-        // once the HTML is rendered we can add a listener to Add to Cart button
-        // Notice the .bind(this). Our callback will not work if we don't include that line. Review the readings from this week on 'this' to understand why.
+
         document.getElementById('addToFavs')
           .addEventListener('click', this.addToFavs);
         }

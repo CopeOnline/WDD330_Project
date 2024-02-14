@@ -7,12 +7,12 @@
 // import { renderListWithTemplate, capitalizeWord} from "./utils.mjs";
 
 //Template literal for product cards on main page
-function productCardTemplate(product){
+function locationCardTemplate(location){
     return `<li class="product-card">
-    <a href="../product_pages/index.html?product=${product.Id}">
-        <img src="${product.Images.PrimaryMedium}" alt="${product.Name} ">
-        <h3 class="card__brand">${product.Brand.Name}</h3>
-        <h2 class="card__name">${product.NameWithoutBrand}</h2>
+    <a href="../location_pages/index.html?location=${location.location_id}">
+        <img src="${location.photo.images.small.url}" alt="${location.name} "width="${location.photo.images.small.width}" height="${location.photo.images.small.height}">
+        <h3 class="location_brand">${location.name}</h3>
+        <h2 class="location_state">${location.location_string}</h2>
         <p class="product-card__price">$${product.FinalPrice}</p>
     </a>
     </li>`
@@ -30,19 +30,17 @@ export default class LocationList{
         this.listElement = document.querySelector(".product-list");
     }
     async init(){
-        //const productList = await this.dataSource.getData(this.category);
-        this.renderList(productList)
-        this.counter(productList)
-        this.renderBreadCrumb(productList)
+        //const LocationList = await this.dataSource.getData(this.category);
+        this.renderList(LocationList)
     }
-    renderList(productList){
+    renderList(LocationList){
         //filter out bad locations before sending to render
 
-    renderListWithTemplate(productCardTemplate, this.listElement, productList, 'afterbegin', false);
+    renderListWithTemplate(locationCardTemplate, this.listElement, LocationList, 'afterbegin', false);
     }
     //counts number of items in the list for the breadcrumb. 
     counter(locationList){
-        Object.keys(locationList).forEach(key => {
+        Object.keys(LocationList).forEach(key => {
             this.locationCount += 1;
         });
     }
