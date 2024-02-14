@@ -1,39 +1,33 @@
-//purpose is to generate a list of product cards in HTML from an array
-//Will feed into the main html page
-    //create a template to populate product card details
-    //class to handle productListing info.
-    //filter out bad id's for tents.  May need a diff way to filter later?
+import { renderListWithTemplate } from "./utils.mjs";
 
-// import { renderListWithTemplate, capitalizeWord} from "./utils.mjs";
-
-//Template literal for product cards on main page
 function locationCardTemplate(location){
-    return `<li class="product-card">
-    <a href="../location_pages/index.html?location=${location.location_id}">
-        <img src="${location.photo.images.small.url}" alt="${location.name} "width="${location.photo.images.small.width}" height="${location.photo.images.small.height}">
-        <h3 class="location_brand">${location.name}</h3>
-        <h2 class="location_state">${location.location_string}</h2>
-        <p class="product-card__price">$${product.FinalPrice}</p>
+    return `<li class="location-card">
+    <a href="../location_pages/index.html?location=${location.result_object.location_id}">
+        <img src="${location.result_object.photo.images.small.url}" alt="${location.name} "width="${location.result_object.photo.images.small.width}" height="${location.result_object.photo.images.small.height}">
+        <h3 class="location_brand">${location.result_object.name}</h3>
+        <h2 class="location_state">${location.result_object.location_string}</h2>
     </a>
     </li>`
 }
 
 
 export default class LocationList{
-    constructor(category, dataSource, listElement){
+    constructor(category, dataSource){
         this.category = category;
         this.dataSource = dataSource;
-        this.listElement = document.querySelector(".product-list");
+        this.listElement = document.querySelector(".location-list");
     }
-    async init(){
-        const locationList = await this.dataSource.getData(this.category);
-        this.renderList(locationList)
+    async init() {
+        console.log(this.dataSource)
+        const element = this.dataSource.results.data
+        this.location = element.result_object
+        this.renderList(element)
     }
-    renderList(locationList){
-        renderListWithTemplate(locationCardTemplate, this.listElement, locationList, 'afterbegin', false);
+    renderList(element){
+        renderListWithTemplate(locationCardTemplate, this.listElement, element, 'afterbegin', false);
     }
-    counter(locationList){
-        Object.keys(locationList).forEach(key => {
+    counter(element){
+        Object.keys(element).forEach(key => {
             this.locationCount += 1;
         });
     }
