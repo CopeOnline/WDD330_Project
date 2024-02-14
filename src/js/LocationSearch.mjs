@@ -13,7 +13,3 @@ const myList = new LocationList(location_id, dataSource);
 
 myList.init();
 
-//add category name
-const categoryElement = document.getElementsByClassName('location-list');
-categoryElement.innerHTML = location;
-console.log(location)
