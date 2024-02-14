@@ -41,22 +41,20 @@ export function getParams(param){
 
 /* renderListWithTemplate */
 //used by ProductList
-// export function renderListWithTemplate(templateFn, parentElement, list, position = "afterbegin", clear=false){
-//   const htmlStrings = list.map(templateFn);
-//   //use clear to wipe the element before loading with the template
-//   if (clear){
-//     parentElement.innerHTML = '';
-//   }
-//   parentElement.insertAdjacentHTML(position, htmlStrings.join(''));
-// }
+export function renderListWithTemplate(templateFn, parentElement, list, position = "afterbegin", clear=false){
+  const htmlStrings = list.map(templateFn);
+  //use clear to wipe the element before loading with the template
+  if (clear){
+    parentElement.innerHTML = '';
+  }
+  parentElement.insertAdjacentHTML(position, htmlStrings.join(''));
+}
 
 //Render Template
 export function renderWithTemplate(templateFn, parentElement, data, callback, position = "afterbegin"){
-  //No idea what this is for...
   if(callback) {
     callback(data)
   }
-  //insert the template data at the beginning of the element.
   parentElement.insertAdjacentHTML(position, templateFn);
 }
 

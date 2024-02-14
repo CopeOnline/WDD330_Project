@@ -19,10 +19,6 @@ function locationCardTemplate(location){
 }
 
 
-//Product List class used on main page to list out locations from json, 
-//calls renderList to actually display the info from the ProductList class using the template
-//filter is used to manually filter out broken locations in the json file.  
-//TODO - I'd like to move the filter IDs into a JSON and pull from that dynamically.  So an admin could just keep the filter.json file updated on what products they don't want displayed.  
 export default class LocationList{
     constructor(category, dataSource, listElement){
         this.category = category;
@@ -30,17 +26,14 @@ export default class LocationList{
         this.listElement = document.querySelector(".product-list");
     }
     async init(){
-        //const LocationList = await this.dataSource.getData(this.category);
-        this.renderList(LocationList)
+        const locationList = await this.dataSource.getData(this.category);
+        this.renderList(locationList)
     }
-    renderList(LocationList){
-        //filter out bad locations before sending to render
-
-    renderListWithTemplate(locationCardTemplate, this.listElement, LocationList, 'afterbegin', false);
+    renderList(locationList){
+        renderListWithTemplate(locationCardTemplate, this.listElement, locationList, 'afterbegin', false);
     }
-    //counts number of items in the list for the breadcrumb. 
     counter(locationList){
-        Object.keys(LocationList).forEach(key => {
+        Object.keys(locationList).forEach(key => {
             this.locationCount += 1;
         });
     }
