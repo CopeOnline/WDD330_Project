@@ -1,5 +1,6 @@
 import ExternalServices from "./ExternalServices.mjs";
 import { loadSearch } from "./body";
+import { getParams } from "./utils.mjs";
 
 
 export function prepareDoc(){
@@ -12,25 +13,19 @@ export function prepareDoc(){
 export function submit() {
     document.addEventListener('submit', (e) => {
         e.preventDefault();
-        // window.stop()
         const searchTerm = [];
         let obj = new Object();
         obj.Loc = document.querySelector('#q').name;
         obj.Term = (`${document.querySelector('#q').value}`);
         searchTerm.push(obj)
         sessionStorage.setItem('searchTerm', (JSON.stringify(searchTerm)));
+        const eS = new ExternalServices()
+        loadSearch(eS)
+        // window.location.replace('../searchResults/index.html');
         document.querySelector('#q').value = '';
-        // const eS = new ExternalServices()
-        // window.onload = loadSearch(eS)
     });
 }
-export function storageUpdate(){
-    window.onstorage = (e) => {
-        // When local storage changes, dump the list to
-        // the console.
-        console.log("search")
-          };
-}
+
 
 
 

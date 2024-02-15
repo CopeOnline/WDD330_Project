@@ -51,7 +51,6 @@ export default class LocationDetail {
     //populates the details on the product page using the template
     //selector determines what element to attach the details to
     renderProductDetails(selector) {
-        //method to generate HTML to display our product
         const element = document.querySelector(selector);
         element.insertAdjacentHTML(
             "afterBegin",
