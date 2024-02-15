@@ -12,8 +12,20 @@ export async function convertToJson(res) {
     throw {name: "servicesError", message: jsonRes};
   }
 }
+export async function getData(url, options){
 
-export async function prepareSearchData(myObj, i){
+  try {
+  const response = await fetch(url, options);
+  const data = await convertToJson(response);
+  return data.Result;
+}  catch (error) {
+  console.error(error);
+}
+};
+
+export default class ExternalServices {
+
+async prepareSearchData(myObj, i){
   const url = APIURL + INITIAL[i];
   const term = myObj[0].Term
   const options = {
@@ -28,11 +40,11 @@ export async function prepareSearchData(myObj, i){
       language: LANG, 
     })
   };
-getData(url, options, i)
+  getData(url, options)
 };
 
 
-export async function prepareData(myObj, i) {
+async prepareData(myObj, i) {
       const url = APIURL + INITIAL[i];
       const term = myObj[0].Term
       const options = {
@@ -49,18 +61,6 @@ export async function prepareData(myObj, i) {
           offset: '0'
         })
       };
-    getData(url, options, i)
+    getData(url, options)
   };
-
-  async function getData(url, options){
-
-    try {
-	  const response = await fetch(url, options);
-	  const data = await convertToJson(response);
-    console.log(data, 'data')
-	  return data.Result;
-  }  catch (error) {
-	  console.error(error);
-  }
-  };
-
+}

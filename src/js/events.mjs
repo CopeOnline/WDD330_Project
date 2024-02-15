@@ -18,6 +18,7 @@ export function submit() {
         searchTerm.push(obj)
         sessionStorage.setItem('searchTerm', (JSON.stringify(searchTerm)));
         document.querySelector('#q').value = '';
+        setTimeout(console.log(searchTerm), 300000)
     });
 }
 // export function dropMenuEvents(){

@@ -1,4 +1,4 @@
-import { renderListWithTemplate } from "./utils.mjs";
+import { renderListWithTemplate, getLocalStorage } from "./utils.mjs";
 
 function locationCardTemplate(location){
     return `<li class="location-card">
@@ -12,9 +12,9 @@ function locationCardTemplate(location){
 
 
 export default class LocationList{
-    constructor(category, dataSource){
+    constructor(category){
         this.category = category;
-        this.dataSource = dataSource;
+        this.dataSource = getLocalStorage('search');
         this.listElement = document.querySelector(".location-list");
     }
     async init() {

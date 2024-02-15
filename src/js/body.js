@@ -1,7 +1,6 @@
-import { prepareData, prepareSearchData } from './ExternalServices.mjs';
 import { INITIAL } from './const.mjs';
 
-export async function loadSearch() {
+export async function loadSearch(eS) {
     let i;
     let data;
     const mop = sessionStorage.getItem('searchTerm');
@@ -10,9 +9,11 @@ export async function loadSearch() {
     if (myObj[0].Loc === 'typeahead') {
         i = INITIAL.indexOf(myObj[0].Loc);
 
-        data = prepareSearchData(myObj, i);
+        data = eS.prepareSearchData(myObj, i);
+
+    
         
     } else {
-        data = prepareData(myObj, i);
+        data = eS.prepareData(myObj, i);
     }
 }
