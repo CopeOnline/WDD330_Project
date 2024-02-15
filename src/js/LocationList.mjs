@@ -19,7 +19,6 @@ export default class LocationList{
     }
     async init() {
         
-        console.log(this.dataSource)
         const element = this.dataSource.results.data
         this.location = element.result_object
         this.renderList(element)

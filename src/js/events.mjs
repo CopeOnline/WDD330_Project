@@ -24,6 +24,17 @@ export function submit() {
         // window.onload = loadSearch(eS)
     });
 }
+export function storageUpdate(){
+    window.onstorage = (e) => {
+        // When local storage changes, dump the list to
+        // the console.
+        console.log("search")
+          };
+}
+
+
+
+
 // export function dropMenuEvents(){
 //     const dp = document.querySelectorAll('.dropdown-content > a');
 //     let category;

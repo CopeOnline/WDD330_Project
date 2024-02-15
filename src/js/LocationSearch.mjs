@@ -11,4 +11,3 @@ const Id = getParams('location_id');
 const myList = new LocationDetail(Id, dataSource);
 
 myList.init();
-

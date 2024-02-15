@@ -102,3 +102,4 @@ export function stopAnimateCartIcon() {
   const cart = document.querySelector('.cart');
   cart.classList.remove('animate');
 }
+
