@@ -1,3 +1,4 @@
+import ExternalServices from "./ExternalServices.mjs";
 import { loadSearch } from "./body";
 
 
@@ -11,6 +12,7 @@ export function prepareDoc(){
 export function submit() {
     document.addEventListener('submit', (e) => {
         e.preventDefault();
+        // window.stop()
         const searchTerm = [];
         let obj = new Object();
         obj.Loc = document.querySelector('#q').name;
@@ -18,7 +20,8 @@ export function submit() {
         searchTerm.push(obj)
         sessionStorage.setItem('searchTerm', (JSON.stringify(searchTerm)));
         document.querySelector('#q').value = '';
-        setTimeout(console.log(searchTerm), 300000)
+        // const eS = new ExternalServices()
+        // window.onload = loadSearch(eS)
     });
 }
 // export function dropMenuEvents(){
