@@ -4,7 +4,6 @@ import { loadSearch } from './body';
 import { loadHeaderFooter } from './utils.mjs';
 import ExternalServices from './ExternalServices.mjs'
 
-
 loadHeaderFooter();
 const eS = new ExternalServices();
 loadSearch(eS)

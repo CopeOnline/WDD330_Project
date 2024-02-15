@@ -18,6 +18,7 @@ export default class LocationList{
         this.listElement = document.querySelector(".location-list");
     }
     async init() {
+        
         console.log(this.dataSource)
         const element = this.dataSource.results.data
         this.location = element.result_object

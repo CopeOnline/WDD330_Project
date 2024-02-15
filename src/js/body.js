@@ -8,11 +8,7 @@ export async function loadSearch(eS) {
 
     if (myObj[0].Loc === 'typeahead') {
         i = INITIAL.indexOf(myObj[0].Loc);
-
         data = eS.prepareSearchData(myObj, i);
-
-    
-        
     } else {
         data = eS.prepareData(myObj, i);
     }
