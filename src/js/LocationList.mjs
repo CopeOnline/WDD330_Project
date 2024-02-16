@@ -1,13 +1,13 @@
 import { renderListWithTemplate, getLocalStorage } from "./utils.mjs";
 
 function locationCardTemplate(location){
-    return `<li class="location-card">
+    return `<section class="location-card">
     <a href="../LocationDetails/index.html?location_id=${location.result_object.location_id}">
         <img src="${location.result_object.photo.images.small.url}" alt="${location.name} "width="${location.result_object.photo.images.small.width}" height="${location.result_object.photo.images.small.height}">
         <h3 class="location_brand">${location.result_object.name}</h3>
         <h2 class="location_state">${location.result_object.parent_display_name}</h2>
     </a>
-    </li>`
+    </section>`
 }
 
 
@@ -25,10 +25,5 @@ export default class LocationList{
     }
     renderList(element){
         renderListWithTemplate(locationCardTemplate, this.listElement, element, 'afterbegin', false);
-    }
-    counter(element){
-        Object.keys(element).forEach(key => {
-            this.locationCount += 1;
-        });
     }
 }
