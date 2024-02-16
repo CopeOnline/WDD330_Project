@@ -35,6 +35,11 @@ header {
     margin-top: 2em;
     color: #a3333d;
 }
+.inst2 {
+    position: relative;
+    color: #a3333d;
+    margin-top: -.8em;
+}
 .logo {
     line-height: 60px;
     width: 245px;
@@ -51,6 +56,10 @@ header {
 .hero {
     position: relative;
 }
+strong#accent {
+    color:#598392;
+
+}
 .spacer {
     display: inline-block;
     width: 2em;
@@ -66,7 +75,7 @@ header {
     border: solid #a3333d;
     border-radius: 10px;
     font-size: 17px;
-    margin: 5em 0;
+    margin: 3em 0 4em 0;
     position: relative;
     width: 16em;
 }
@@ -116,7 +125,7 @@ header {
     margin: 0 auto 1em auto;
 }
 h3.alert {
-    margin-top: -3em;
+    margin-top: -2.5em;
     text-align: center;
 }
 @keyframes spin {
