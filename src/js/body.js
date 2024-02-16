@@ -11,21 +11,19 @@ export function loadSearch(eS) {
     } else {
         eS.prepareData(myObj, i);
     }
-
 }
 export function displayLoading() {
-    const loader = document.querySelector("#loading")
-    const loaderAlert = document.querySelector("#loading-alert")
-    loader.classList.toggle("display");
-    loaderAlert.classList.toggle("display");
+    const loader = document.querySelector('#loading');
+    const loaderAlert = document.querySelector('#loading-alert');
+    loader.classList.toggle('display');
+    loaderAlert.classList.toggle('display');
     // to stop loading after some time
     setTimeout(() => {
-        loader.classList.remove("display");
-        loaderAlert.classList.remove("display");
-    }, 3000);
-    
+        loader.classList.remove('display');
+        loaderAlert.classList.remove('display');
+    }, 5000);
 }
-export function hideLoading() {
-    loader.classList.remove("display");
-    loaderAlert.classList.remove("display");
-}
+// export function hideLoading() {
+//     loader.classList.remove('display');
+//     loaderAlert.classList.remove('display');
+// }

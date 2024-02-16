@@ -106,10 +106,11 @@ header {
     animation: spin 1s infinite linear;
 }
 #loading-alert {
-    display:none;
+    display: none;
 }
-#loading.display, #loading-alert.display {
-    display:block;
+#loading.display,
+#loading-alert.display {
+    display: block;
 }
 @keyframes spin {
     from {
