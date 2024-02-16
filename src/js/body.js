@@ -23,7 +23,3 @@ export function displayLoading() {
         loaderAlert.classList.remove('display');
     }, 5000);
 }
-// export function hideLoading() {
-//     loader.classList.remove('display');
-//     loaderAlert.classList.remove('display');
-// }
