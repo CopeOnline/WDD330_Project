@@ -61,7 +61,6 @@ export async function loadTemplate(path) {
 }
 
 export function showElement(element) {
-  console.log(element)
   element.classList.add('display');
 }
 

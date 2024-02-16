@@ -22,7 +22,7 @@ export function submit() {
         const eS = new ExternalServices()
         loadSearch(eS)
         setTimeout(() => {
-            console.log('now load')
+            document.querySelector('#q').value = '';
             window.location.href = '../searchResults/index.html';
         }, 5000);
     });

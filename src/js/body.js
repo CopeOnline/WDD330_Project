@@ -13,6 +13,7 @@ export function loadSearch(eS) {
         eS.prepareData(myObj, i);
     }
 }
+
 export function displayLoading() {
     const loader = document.querySelector('#loading');
     const loaderAlert = document.querySelector('#loading-alert');

@@ -4,7 +4,7 @@
     /* colors */
     --primary-color: #598392;
     --secondary-color: #3f612d;
-    --tertiary-color: #c6cac6;
+    --tertiary-color: #dfe2df;
     --primary-accent-color: #a3333d;
     --secondary-accent-color: #f0a202;
     --dark-gray: #222121;
@@ -68,6 +68,7 @@ header {
     font-size: 17px;
     margin: 5em 0;
     position: relative;
+    width: 16em;
 }
 #formSearch input#q[type='text']:hover {
     box-shadow: 5em #f0a202;
@@ -76,6 +77,7 @@ header {
     border: 3px solid #3f612d;
     box-shadow: 10px black;
     text-align: left;
+    width: 8em;
 }
 #formSearch input#q[type='text']::placeholder {
     text-align: center;
@@ -91,7 +93,7 @@ header {
 }
 #main-footer {
     display: block;
-    position: fixed;
+    position: relative;
     bottom: 0;
 }
 #loading {
@@ -99,18 +101,23 @@ header {
     width: 2rem;
     height: 2rem;
     border: 5px solid #f3f3f3;
-    border-top: 6px solid #9c41f2;
+    border-top: 6px solid #a3333d;
     border-radius: 100%;
     margin: 5em;
-    /* visibility: hidden; */
     animation: spin 1s infinite linear;
 }
 #loading-alert {
     display: none;
+    color: #3f612d;
 }
 #loading.display,
 #loading-alert.display {
     display: block;
+    margin: 0 auto 1em auto;
+}
+h3.alert {
+    margin-top: -3em;
+    text-align: center;
 }
 @keyframes spin {
     from {
