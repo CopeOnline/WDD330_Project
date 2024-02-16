@@ -15,16 +15,21 @@
                 <h2 class="inst">
                     Search for a location ANYWHERE in the World
                 </h2>
-                <form id="formSearch">
+                <form id="formSearch" action="">
                     <input
                         type="text"
                         name="typeahead"
                         id="q"
                         placeholder="Pick a Location"
                         required
+                        onSubmit = "location.href='../searchResults/index.html'"
                     />
                 </form>
-                <div class="thumbnails"></div>
+                <div id="loading-alert">
+                    <h2>Searching...</h2>
+                </div>
+                <div id="loading">
+                </div>
             </div>
         </main>
         <footer id="main-footer"></footer>

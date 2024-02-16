@@ -6,8 +6,8 @@ import ExternalServices from './ExternalServices.mjs'
 
 loadHeaderFooter();
 
-if (getLocalStorage('search') != null){
+const eS = new ExternalServices()
+loadSearch(eS)
+const location = new LocationList(eS);
+location.init();
 
-    const location = new LocationList(eS);
-    location.init();
-}

@@ -1,5 +1,4 @@
 import { APIURL, APIKEY, APIHOST, INITIAL, CRNCS, LANG} from "./const.mjs";
-import { setLocalStorage } from "./utils.mjs";
 
 //Grabs the Info from json
 export async function convertToJson(res) {

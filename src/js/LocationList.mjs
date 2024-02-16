@@ -18,10 +18,10 @@ export default class LocationList{
         this.listElement = document.querySelector(".location-list");
     }
     async init() {
+        this.element = this.dataSource.results.data
+        this.location = this.element.result_object
         
-        const element = this.dataSource.results.data
-        this.location = element.result_object
-        this.renderList(element)
+        this.renderList(this.element)
     }
     renderList(element){
         renderListWithTemplate(locationCardTemplate, this.listElement, element, 'afterbegin', false);
