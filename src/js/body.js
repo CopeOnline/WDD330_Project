@@ -1,4 +1,5 @@
 import { INITIAL } from './const.mjs';
+import { hideElement, showElement } from './utils.mjs';
 
 export function loadSearch(eS) {
     let i;
@@ -15,11 +16,11 @@ export function loadSearch(eS) {
 export function displayLoading() {
     const loader = document.querySelector('#loading');
     const loaderAlert = document.querySelector('#loading-alert');
-    loader.classList.toggle('display');
-    loaderAlert.classList.toggle('display');
+    showElement(loader);
+    showElement(loaderAlert);
     // to stop loading after some time
     setTimeout(() => {
-        loader.classList.remove('display');
-        loaderAlert.classList.remove('display');
+        hideElement(loader);
+        hideElement(loaderAlert);
     }, 5000);
 }

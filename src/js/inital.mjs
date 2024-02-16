@@ -1,16 +1,10 @@
 import { APIKEY, APIHOST, APIURL, INITIAL  } from "./const.mjs";
 import { setLocalStorage } from "./utils.mjs";
 import ExternalServices from "./ExternalServices.mjs";
-import { loadSearch } from "./body";
 
 
 export async function initializeOptions( ){
     localStorage.clear()
-	const eS = new ExternalServices()
-	// startingSearch()
-	// loadSearch(eS)
-    // await loadNewData('currencies', "crncs")
-    // await loadNewData('languages', 'lang')
 };
 
 export async function loadNewData(element, key){

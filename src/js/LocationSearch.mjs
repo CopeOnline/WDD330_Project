@@ -6,7 +6,7 @@ loadHeaderFooter();
 
 const dataSource = getLocalStorage('search'); 
 
-//const location_id = dataSource.results
+
 const Id = getParams('location_id');
 const myList = new LocationDetail(Id, dataSource);
 
