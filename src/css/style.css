@@ -38,7 +38,7 @@ header {
 .inst2 {
     position: relative;
     color: #a3333d;
-    margin-top: -.8em;
+    margin-top: -0.8em;
 }
 .logo {
     line-height: 60px;
@@ -57,8 +57,7 @@ header {
     position: relative;
 }
 strong#accent {
-    color:#598392;
-
+    color: #598392;
 }
 .spacer {
     display: inline-block;
