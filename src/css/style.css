@@ -101,6 +101,7 @@ strong#accent {
     border-bottom: 2px solid var(--primary-color);
 }
 #main-footer {
+    margin-top: 2em;
     display: block;
     position: relative;
     bottom: 0;
@@ -157,8 +158,9 @@ section.location-card:hover {
     border-radius: 1em 1em 0 0;
 }
 h3.location_name {
-    margin-top: 5px;
+    margin-top: 4px;
     margin-bottom: 2.5px;
+    font-size: smaller;
     color: #3f612d;
 }
 h4.location_state {
