@@ -13,7 +13,7 @@ function locationCardTemplate(location){
 function locationErrorTemplate(location){
     return `<section class="error-card">
     <a href="../index.html">
-        <h3 class="error_name">Whoops, something went wrong</h3>
+        <h3 class="error_name">Whoops, something went wrong!</h3>
         <h3 class="error_results">No Matches Found</h3>
         <h4 class="error_state">Click Here to Start Over</h4>
     </a>
@@ -26,15 +26,17 @@ export default class LocationList{
         this.category = category;
         this.dataSource = getLocalStorage('search');
         this.listElement = document.querySelector(".location-list");
-        this.element = this.dataSource.results.data;
-        this.location = this.element.result_object;
+
         this.template = locationCardTemplate;
     }
     async init() {
         if (this.dataSource === null ) {
             this.element = [{category: 0}]
             this.template = locationErrorTemplate;
-        };
+        }else {
+            this.element = this.dataSource.results.data;
+            this.location = this.element.result_object;
+        }
         if (Object.keys(this.element).length === 0){
             this.element = [{category: 0}]
             this.template = locationErrorTemplate;

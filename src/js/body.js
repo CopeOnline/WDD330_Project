@@ -23,5 +23,5 @@ export function displayLoading() {
     setTimeout(() => {
         hideElement(loader);
         hideElement(loaderAlert);
-    }, 5000);
+    }, 4000);
 }

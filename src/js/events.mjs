@@ -24,7 +24,7 @@ export function submit() {
         setTimeout(() => {
             document.querySelector('#q').value = '';
             window.location.href = '../searchResults/index.html';
-        }, 6000);
+        }, 5000);
     });
 }
 

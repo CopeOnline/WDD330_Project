@@ -17,10 +17,8 @@ export function setClick(selector, callback) {
   qs(selector).addEventListener("touchend", (event) => {
     event.preventDefault();
     callback();
-    console.log('listener loaded')
   });
   qs(selector).addEventListener("click", callback);
-  console.log('listener loaded')
 }
 
 export function getParams(param){
