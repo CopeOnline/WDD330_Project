@@ -27,4 +27,18 @@ export function submit() {
         }, 5000);
     });
 }
-
+export function loadPhotoGallery() {
+    displayLoading();
+    const searchTerm = [];
+    let obj = new Object();
+    obj.Loc = document.querySelector('#morePics').name;
+    obj.Term = (`${document.querySelector('#morePics').getAttribute('data-id')}`);
+    searchTerm.push(obj)
+    sessionStorage.setItem('searchTerm', (JSON.stringify(searchTerm)));
+    const eS = new ExternalServices()
+    loadSearch(eS)
+    setTimeout(() => {
+        document.querySelector('#morePics').value = '';
+        window.location.href = '../PhotoGallery/index.html';
+    }, 5000);
+}

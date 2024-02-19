@@ -5,10 +5,13 @@ import ExternalServices from "./ExternalServices.mjs";
 
 export async function initializeOptions( ){
     localStorage.removeItem('search')
+	localStorage.removeItem('photos')
 	const chMem = getLocalStorage('Id')
-	if (chMem.length === 0){
-		localStorage.removeItem('Id')
-	}
+	if (chMem != null) {
+		if (chMem.length === 0 ){
+			localStorage.removeItem('Id')
+		};
+	};
 };
 
 export async function loadNewData(element, key){

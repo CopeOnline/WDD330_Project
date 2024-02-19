@@ -5,14 +5,18 @@ function locationDetailsTemplate(location) {
       <img
         class="divider"
         src="${location.photo.images.large.url}" width="${location.photo.images.large.width}" height="${location.photo.images.large.height}"
-        alt="${location.name}"
-      />
+        alt="${location.name}"/>
+      <button id="morePics" name="photos" data-id="${location.location_id}">More Pictures</button>
+      <div id="loading-alert">
+      <h3 class="alert">Gathering your Results</h3>
+      </div>
+      <div id="loading"></div>
+      </div>
+      <p class="location__description">${location.description}</p>
       <p class="latitude">Latitude: ${location.latitude}</p>
       <p class="latitude">Longitude: ${location.longitude}</p>
       <p class="timezone">Timezone: ${location.timezone}</p>
-      <p class="location__description">
-      ${location.description}
-      </p>
+      
       <div class="location-detail__add">
         <a href='../favorites/index.html'>
         <button id="addToFavs" data-id="${location.location_id}">Add to Favorites</button>
@@ -38,18 +42,14 @@ export default class LocationDetail {
           
     addToFavs(location){
           const con = getLocalStorage('Id')
-          console.log(location, 'loca')
           let check = false;
           if (con != null && con.length != 0){ 
             con.forEach(element => {
-              console.log(element.location_id)
               if (element.location_id === location) {
                 check = true;
               }
             });
           }else{
-            console.log(con.location_id)
-            console.log(check)
             check = false;
           } 
         if (check === false) {

@@ -1,9 +1,9 @@
 import { APIURL, APIKEY, APIHOST, INITIAL, CRNCS, LANG} from "./const.mjs";
 
 //Grabs the Info from json
-export async function convertToJson(res) {
+export async function convertToJson(res, key) {
   const jsonRes = await res.json();
-  localStorage.setItem('search', JSON.stringify(jsonRes))
+  localStorage.setItem(key, JSON.stringify(jsonRes))
   if (res.ok) {
     return jsonRes;
   } else {
@@ -11,11 +11,11 @@ export async function convertToJson(res) {
     throw {name: "servicesError", message: jsonRes};
   }
 }
-export async function getData(url, options){
+export async function getData(url, options, key){
 
   try {
   const response = await fetch(url, options);
-  const data = await convertToJson(response);
+  const data = await convertToJson(response, key);
   return data.Result;
 }  catch (error) {
   console.error(error);
@@ -25,6 +25,7 @@ export async function getData(url, options){
 export default class ExternalServices {
 
 async prepareSearchData(myObj, i){
+  const key = "search"
   const url = APIURL + INITIAL[i];
   const term = myObj[0].Term
   const options = {
@@ -39,11 +40,12 @@ async prepareSearchData(myObj, i){
       language: LANG, 
     })
   };
-  getData(url, options)
+  getData(url, options, key)
 };
 
 
 async prepareData(myObj, i) {
+      const key = 'photos'
       const url = APIURL + INITIAL[i];
       const term = myObj[0].Term
       const options = {
@@ -60,6 +62,6 @@ async prepareData(myObj, i) {
           offset: '0'
         })
       };
-    getData(url, options)
+    getData(url, options, key)
   };
 }

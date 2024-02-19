@@ -36,7 +36,6 @@ export default class Favorite {
 
   removeFav(id) {
     var favItems = getLocalStorage('Id');
-    console.log(favItems)
     if (favItems) {
       const itemIndex = favItems.find((item) => item.Id === id);
       if (itemIndex !== -1) {
