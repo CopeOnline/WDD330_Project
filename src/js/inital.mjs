@@ -1,10 +1,14 @@
 import { APIKEY, APIHOST, APIURL, INITIAL  } from "./const.mjs";
-import { setLocalStorage } from "./utils.mjs";
+import { getLocalStorage, setLocalStorage } from "./utils.mjs";
 import ExternalServices from "./ExternalServices.mjs";
 
 
 export async function initializeOptions( ){
-    localStorage.clear()
+    localStorage.removeItem('search')
+	const chMem = getLocalStorage('Id')
+	if (chMem.length === 0){
+		localStorage.removeItem('Id')
+	}
 };
 
 export async function loadNewData(element, key){

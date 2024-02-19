@@ -28,22 +28,3 @@ export function submit() {
     });
 }
 
-
-
-
-
-// export function dropMenuEvents(){
-//     const dp = document.querySelectorAll('.dropdown-content > a');
-//     let category;
-//     dp.forEach(function(element) { element.addEventListener("click", (e) => {
-//         SAMPLES.push('key:', element.name)
-//     });
-//     });
-//     const dropMenu = document.querySelector('button.dropbtn');
-//     dropMenu.addEventListener('click', (e) => {
-//         document.querySelector('.dropdown-content').classList.toggle('show');
-//     });
-//     return category;
-// };
-    
-

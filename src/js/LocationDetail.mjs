@@ -1,4 +1,4 @@
-
+import { getLocalStorage, setLocalStorage } from "./utils.mjs";
 
 function locationDetailsTemplate(location) {
     return `<section class="location-detail"> <h3>${location.location_string}</h3>
@@ -14,7 +14,9 @@ function locationDetailsTemplate(location) {
       ${location.description}
       </p>
       <div class="location-detail__add">
+        <a href='../favorites/index.html'>
         <button id="addToFavs" data-id="${location.location_id}">Add to Favorites</button>
+        </a>
       </div></section>`;
 }
 
@@ -29,32 +31,37 @@ export default class LocationDetail {
         element.forEach(element => {
           if (this.location_id === element.result_object.location_id) {
                this.location = element.result_object
-                this.renderProductDetails("main");
-
-              document.getElementById('addToFavs')
-                .addEventListener('click', this.addToFavs);
+                this.renderLocationDetails("main");
             }
           });
         };
           
-    //simply adds the product info to the local storage.
-    // addToCart(){
-    //         setLocalStorage('so-cart', this.product);
-    //         //added here to update cart counter each time you add an item
-    //         renderCartCount();
-    //         removeAllAlerts('add-to-cart-message');
-    //         alertMessage(`${this.product.NameWithoutBrand} Added To Cart`, true, 'add-to-cart-message')
-    //         setTimeout(() => {removeAllAlerts('add-to-cart-message', true)}, 2500);
-    //         startAnimateCartIcon();
-    //         setTimeout(() => {stopAnimateCartIcon()}, 500);
-    // }
-    //populates the details on the product page using the template
-    //selector determines what element to attach the details to
-    renderProductDetails(selector) {
+    addToFavs(location){
+          const con = getLocalStorage('Id')
+          console.log(location, 'loca')
+          let check = false;
+          if (con != null && con.length != 0){ 
+            con.forEach(element => {
+              console.log(element.location_id)
+              if (element.location_id === location) {
+                check = true;
+              }
+            });
+          }else{
+            console.log(con.location_id)
+            console.log(check)
+            check = false;
+          } 
+        if (check === false) {
+        setLocalStorage('Id', this.location);
+        }
+        };
+    
+
+    renderLocationDetails(selector) {
         const element = document.querySelector(selector);
         element.insertAdjacentHTML(
             "afterBegin",
-            locationDetailsTemplate(this.location)
-        )
-    } 
-  }
+            locationDetailsTemplate(this.location))
+      } 
+    }

@@ -6,8 +6,12 @@ loadHeaderFooter();
 
 const dataSource = getLocalStorage('search'); 
 
-
 const Id = getParams('location_id');
 const myList = new LocationDetail(Id, dataSource);
 
 myList.init();
+//EVENT LISTENDER FOR CART DELETE BUTTONS
+const favButton = document.getElementById('addToFavs'); 
+favButton.addEventListener('click', function () {
+    myList.addToFavs(favButton.getAttribute('data-id')); 
+});
