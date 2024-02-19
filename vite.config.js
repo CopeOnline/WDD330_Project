@@ -17,7 +17,7 @@ export default defineConfig({
                     __dirname,
                     'src/LocationDetails/index.html'
                 ),
-                PhotoGallery: resolve(__dirname, 'src/MorePhotos/index.html'),
+                PhotoGallery: resolve(__dirname, 'src/PhotoGallery/index.html'),
                 favorites: resolve(__dirname, 'src/favorites/index.html'),
             },
         },
