@@ -42,3 +42,16 @@ export function loadUpdates() {
         window.location.href = '../PhotoGallery/index.html';
     }, 5000);
 }
+
+export function addFavsAndPics (){
+    const favButton = document.getElementById('addToFavs'); 
+favButton.addEventListener('click', function () {
+    myList.addToFavs(favButton.getAttribute('data-id')); 
+});
+
+const photoBtn = document.getElementById('morePics'); 
+photoBtn.addEventListener('click', function () {
+    loadUpdates(photoBtn.getAttribute('data-id')); 
+});
+
+}
