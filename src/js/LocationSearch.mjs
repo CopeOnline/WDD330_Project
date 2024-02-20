@@ -5,7 +5,7 @@ import { loadPhotoGallery } from './events.mjs';
 
 loadHeaderFooter();
 
-const dataSource = getLocalStorage('search'); 
+let dataSource = getLocalStorage('search'); 
 
 const Id = getParams('location_id');
 const myList = new LocationDetail(Id, dataSource);

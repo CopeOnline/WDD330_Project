@@ -3,14 +3,14 @@ import { renderListWithTemplate, getLocalStorage } from "./utils.mjs";
 function locationCardTemplate(location){
     return `<section class="location-card">
     <a href="../LocationDetails/index.html?location_id=${location.result_object.location_id}">
-        <img src="${location.result_object.photo.images.small.url}" alt="${location.result_object.name}" >
+        <img src="${location.result_object.photo.images.medium.url}" alt="${location.result_object.name}" >
         <h3 class="location_name">${location.result_object.name}</h3>
         <h4 class="location_state">${location.result_object.parent_display_name}</h4>
     </a> 
     </section>`
 }
 
-function locationErrorTemplate(location){
+export function locationErrorTemplate(location){
     return `<section class="error-card">
     <a href="../index.html">
         <h4 class="error_name">Whoops, something went wrong!</h4>

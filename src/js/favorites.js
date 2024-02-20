@@ -3,7 +3,7 @@ import Favorite from './FavoriteLocations.mjs';
 
 loadHeaderFooter();
 
-const Faves = new Favorite('Id', '.location-list'); //Create new instance of Favorites
+const Faves = new Favorite('Id', '.favorites-list'); //Create new instance of Favorites
 Faves.renderFavsContents(); //pull favs contents from local storage
 
 //EVENT LISTENDER FOR CART DELETE BUTTONS

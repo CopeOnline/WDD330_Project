@@ -5,7 +5,6 @@ import { loadHeaderFooter, getLocalStorage, getParams } from './utils.mjs';
 loadHeaderFooter();
 
 const dataSource = getLocalStorage('photos'); 
-console.log(dataSource)
 const Id = getParams('location_id');
 const myGallery = new Gallery(Id, dataSource);
 

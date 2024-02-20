@@ -4,7 +4,6 @@ import ExternalServices from "./ExternalServices.mjs";
 
 
 export async function initializeOptions( ){
-    localStorage.removeItem('search')
 	localStorage.removeItem('photos')
 	const chMem = getLocalStorage('Id')
 	if (chMem != null) {

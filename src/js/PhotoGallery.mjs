@@ -3,11 +3,11 @@ import { getLocalStorage } from './utils.mjs';
 
 function galleryTemplate(photo) {
   const newGallery = `<section class='photo-card' id='${photo.id}'>
-    <img
-      src='${photo.images.medium.url}'
-      alt='${photo.caption}'
+    <img class="xtraPhotos"
+      src='${photo.images.large.url}'
+      alt='${photo.caption}' loading='lazy'
     />
-  <h4>${photo.caption}</h4>
+  <h4 class='caption'>${photo.caption}</h4>
 </section>`;
 
   return newGallery;

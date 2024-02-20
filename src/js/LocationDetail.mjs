@@ -8,14 +8,13 @@ function locationDetailsTemplate(location) {
         alt="${location.name}"/>
       <button id="morePics" name="photos" data-id="${location.location_id}">More Pictures</button>
       <div id="loading-alert">
-      <h3 class="alert">Gathering your Results</h3>
       </div>
       <div id="loading"></div>
-      </div>
       <p class="location__description">${location.description}</p>
-      <p class="latitude">Latitude: ${location.latitude}</p>
-      <p class="latitude">Longitude: ${location.longitude}</p>
       <p class="timezone">Timezone: ${location.timezone}</p>
+      <p class="latitude">Latitude: ${location.latitude}</p>
+      <p class="longitude">Longitude: ${location.longitude}</p>
+      
       
       <div class="location-detail__add">
         <a href='../favorites/index.html'>
