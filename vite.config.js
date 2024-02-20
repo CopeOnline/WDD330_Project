@@ -19,7 +19,10 @@ export default defineConfig({
                 ),
                 PhotoGallery: resolve(__dirname, 'src/PhotoGallery/index.html'),
                 favorites: resolve(__dirname, 'src/favorites/index.html'),
-                ReloadFavorites: resolve(__dirname, 'src/ReloadFavorites/index.html'),
+                ReloadFavorites: resolve(
+                    __dirname,
+                    'src/ReloadFavorites/index.html'
+                ),
             },
         },
     },

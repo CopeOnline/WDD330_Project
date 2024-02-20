@@ -70,7 +70,7 @@ p {
 }
 h2#accent {
     color: var(--primary-color);
-    margin-top: -.8em;
+    margin-top: -0.8em;
 }
 .spacer {
     display: inline-block;
@@ -309,7 +309,7 @@ a.return {
         display: block;
     }
     .location-detail img {
-        display:block;
+        display: block;
         margin: auto;
     }
     .favs-card img {
@@ -345,5 +345,4 @@ a.return {
         padding-right: 10px;
         font-size: small;
     }
-
 }
