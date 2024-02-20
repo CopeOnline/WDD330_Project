@@ -288,9 +288,6 @@ a.return {
     color: var(--tertiary-color);
 }
 @media screen and (min-width: 500px) {
-    main { 
-        margin: auto 10em auto 5em;
-    }
     section.location-card {
         width: 250px;
         height: 14em;
@@ -308,12 +305,12 @@ a.return {
     section.location-detail {
         border-radius: 1em;
         margin: 1em;
-        background-color: var(--card-contrast-color);
+        background-color: var(--tertiary-color);
         display: block;
     }
     .location-detail img {
-        width: 250px;
-        height: 141px;
+        display:block;
+        margin: auto;
     }
     .favs-card img {
         width: 250px;
@@ -335,6 +332,18 @@ a.return {
     section.photo-card img:hover {
         transform: scale(3);
         z-index: 99;
+    }
+    p.location__description {
+        margin: auto 10em auto 10em;
+        padding: 10px;
+    }
+    p.timezone,
+    p.latitude,
+    p.longitude {
+        margin: auto 20em auto 20em;
+        padding-left: 10px;
+        padding-right: 10px;
+        font-size: small;
     }
 
 }
