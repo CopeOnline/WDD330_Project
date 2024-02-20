@@ -10,7 +10,7 @@ function locationCardTemplate(location){
     </section>`
 }
 
-export function locationErrorTemplate(location){
+export function locationErrorTemplate(){
     return `<section class="error-card">
     <a href="../index.html">
         <h4 class="error_name">Whoops, something went wrong!</h4>

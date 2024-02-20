@@ -10,7 +10,3 @@ const myGallery = new Gallery(Id, dataSource);
 
 myGallery.init();
 
-// const favButton = document.getElementById('addToFavs'); 
-// favButton.addEventListener('click', function () {
-//     myList.addToFavs(favButton.getAttribute('data-id')); 
-// });

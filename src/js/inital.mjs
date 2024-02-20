@@ -1,6 +1,6 @@
 import { APIKEY, APIHOST, APIURL, INITIAL  } from "./const.mjs";
 import { getLocalStorage, setLocalStorage } from "./utils.mjs";
-import ExternalServices from "./ExternalServices.mjs";
+import RetrieveUpdates from "./RetrieveUpdates.mjs";
 
 
 export async function initializeOptions( ){
@@ -31,7 +31,7 @@ try {
 };
 };
 export async function startingSearch(){
-	const alt = new ExternalServices()
+	const alt = new RetrieveUpdates()
 	const starting = [];
 	let obj = new Object();
 	obj.Loc = INITIAL[2] //sets the key as typehead in session storage

@@ -1,4 +1,4 @@
-import ExternalServices from "./ExternalServices.mjs";
+import RetrieveUpdates from "./RetrieveUpdates.mjs";
 import { loadSearch, displayLoading } from "./body";
 
 
@@ -19,7 +19,7 @@ export function submit() {
         obj.Term = (`${document.querySelector('#q').value}`);
         searchTerm.push(obj)
         sessionStorage.setItem('searchTerm', (JSON.stringify(searchTerm)));
-        const eS = new ExternalServices()
+        const eS = new RetrieveUpdates()
         loadSearch(eS)
         setTimeout(() => {
             document.querySelector('#q').value = '';
@@ -27,7 +27,7 @@ export function submit() {
         }, 5000);
     });
 }
-export function loadPhotoGallery() {
+export function loadUpdates() {
     displayLoading();
     const searchTerm = [];
     let obj = new Object();
@@ -35,7 +35,7 @@ export function loadPhotoGallery() {
     obj.Term = (`${document.querySelector('#morePics').getAttribute('data-id')}`);
     searchTerm.push(obj)
     sessionStorage.setItem('searchTerm', (JSON.stringify(searchTerm)));
-    const eS = new ExternalServices()
+    const eS = new RetrieveUpdates()
     loadSearch(eS)
     setTimeout(() => {
         document.querySelector('#morePics').value = '';

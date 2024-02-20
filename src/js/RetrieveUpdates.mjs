@@ -1,13 +1,12 @@
 import { APIURL, APIKEY, APIHOST, INITIAL, CRNCS, LANG} from "./const.mjs";
 
-//Grabs the Info from json
+
 export async function convertToJson(res, key) {
   const jsonRes = await res.json();
   localStorage.setItem(key, JSON.stringify(jsonRes))
   if (res.ok) {
     return jsonRes;
   } else {
-    //if it's not ok, throw the error the server gives us
     throw {name: "servicesError", message: jsonRes};
   }
 }
@@ -22,7 +21,7 @@ export async function getData(url, options, key){
 }
 };
 
-export default class ExternalServices {
+export default class RetrieveUpdates {
 
 async prepareSearchData(myObj, i){
   const key = "search"

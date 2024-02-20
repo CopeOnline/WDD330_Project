@@ -3,7 +3,7 @@ import { getLocalStorage } from './utils.mjs';
 
 function favsItemTemplate(location) {
   const newLocation = `<section class='favs-card' id='${location.location_id}'>
-  <a href="../LocationDetails/index.html?location_id=${location.location_id}" class='favs-card__image'>
+  <a href="../ReloadFavorites/index.html?location_id=${location.location_id}" class='favs-card__image'>
   <img
     src='${location.photo.images.medium.url}'
     alt='${location.name}'
@@ -12,7 +12,7 @@ function favsItemTemplate(location) {
   <p>Remove</p>
   <button class='close-btn' data-id='${location.location_id}'>X</button>
   
-  <a class="card_name" href="../LocationDetails/index.html?location_id=${location.location_id}">
+  <a class="card_name" href="../ReloadFavorites/index.html?location_id=${location.location_id}">
     <h2 class='card__name'>${location.name}</h2>
   </a>
 </section>`;
