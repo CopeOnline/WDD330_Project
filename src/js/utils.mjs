@@ -66,8 +66,3 @@ export function hideElement(element) {
   element.classList.remove('display');
 }
 
-export function stopAnimateCartIcon() {
-  const cart = document.querySelector('.cart');
-  cart.classList.remove('animate');
-}
-
