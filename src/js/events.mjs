@@ -43,7 +43,7 @@ export function loadUpdates() {
     }, 5000);
 }
 
-export function addFavsAndPics (){
+export function addFavsAndPics (myList){
     const favButton = document.getElementById('addToFavs'); 
 favButton.addEventListener('click', function () {
     myList.addToFavs(favButton.getAttribute('data-id')); 
