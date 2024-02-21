@@ -1,4 +1,4 @@
-import { getLocalStorage } from './utils.mjs';
+
 
 
 function galleryTemplate(photo) {
